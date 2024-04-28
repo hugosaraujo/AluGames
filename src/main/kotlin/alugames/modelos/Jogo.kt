@@ -1,3 +1,5 @@
+package alugames.modelos
+
 class Jogo(
     val titulo:String,
     val capa:String ) {

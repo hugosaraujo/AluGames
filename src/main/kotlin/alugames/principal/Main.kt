@@ -1,3 +1,7 @@
+package alugames.principal
+
+import alugames.modelos.InfoJogo
+import alugames.modelos.Jogo
 import com.google.gson.Gson
 import java.net.URI
 import java.net.http.HttpClient
@@ -25,19 +29,20 @@ fun main() {
 
     val gson = Gson()
     val infoJogo = gson.fromJson(json, InfoJogo::class.java)
-    var meuJogo:Jogo? = null
+    var meuJogo: Jogo? = null
 
-    val resultadoBusca = runCatching {
+    val busca = runCatching {
         meuJogo = Jogo(
             infoJogo.info.title,
-            infoJogo.info.thumb)
+            infoJogo.info.thumb
+        )
     }
 
-    resultadoBusca.onFailure {
+    busca.onFailure {
         println("Jogo inexistente. Tente buscar por outro jogo")
     }
 
-    resultadoBusca.onSuccess {
+    busca.onSuccess {
         print("Deseja criar uma descrição personalizada? (S/N)")
         val opcao = leitura.nextLine()
         if(opcao.equals("s", true)){
@@ -47,7 +52,7 @@ fun main() {
         } else {
             meuJogo?.descricao = meuJogo?.titulo
         }
-    }
 
-    println(meuJogo)
+        println(meuJogo)
+    }
 }
