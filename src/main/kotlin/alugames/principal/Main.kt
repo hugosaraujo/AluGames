@@ -7,36 +7,44 @@ import java.util.*
 fun main() {
     val leitura = Scanner(System.`in`)
 
-    print("Digite o código de um jogo para buscar: ")
-    val buscaId = leitura.nextLine()
+    do {
 
-    val buscaApi = ConsumoApi()
-    val infoJogo = buscaApi.buscaJogo(buscaId);
+        print("Digite o código de um jogo para buscar: ")
+        val buscaId = leitura.nextLine()
 
-    var meuJogo: Jogo? = null
+        val buscaApi = ConsumoApi()
+        val infoJogo = buscaApi.buscaJogo(buscaId);
 
-    val busca = runCatching {
-        meuJogo = Jogo(
-            infoJogo.info.title,
-            infoJogo.info.thumb
-        )
-    }
+        var meuJogo: Jogo? = null
 
-    busca.onFailure {
-        println("Jogo inexistente. Tente buscar por outro jogo")
-    }
-
-    busca.onSuccess {
-        print("Deseja criar uma descrição personalizada? (S/N) ")
-        val opcao = leitura.nextLine()
-        if(opcao.equals("s", true)){
-            print("Insira a descrição personalizada: ")
-            val descricaoPersonalizada = leitura.nextLine()
-            meuJogo?.descricao = descricaoPersonalizada
-        } else {
-            meuJogo?.descricao = meuJogo?.titulo
+        val busca = runCatching {
+            meuJogo = Jogo(
+                infoJogo.info.title,
+                infoJogo.info.thumb
+            )
         }
 
-        println(meuJogo)
-    }
+        busca.onFailure {
+            println("Jogo inexistente. Tente buscar por outro jogo")
+        }
+
+        busca.onSuccess {
+            print("Deseja criar uma descrição personalizada? (S/N) ")
+            val opcao = leitura.nextLine()
+            if(opcao.equals("s", true)){
+                print("Insira a descrição personalizada: ")
+                val descricaoPersonalizada = leitura.nextLine()
+                meuJogo?.descricao = descricaoPersonalizada
+            } else {
+                meuJogo?.descricao = meuJogo?.titulo
+            }
+
+            println(meuJogo)
+        }
+
+        print("Deseja buscar um novo jogo? S/N ")
+        val opcaoBusca = leitura.nextLine()
+    } while(opcaoBusca.equals("s", true))
+
+    println("Finalizando o programa!")
 }

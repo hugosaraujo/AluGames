@@ -26,6 +26,5 @@ class ConsumoApi {
         val infoJogo = gson.fromJson(json, InfoJogo::class.java)
 
         return infoJogo
-
     }
 }
