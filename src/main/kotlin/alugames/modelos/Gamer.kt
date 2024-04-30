@@ -2,7 +2,7 @@ package alugames.modelos
 
 import kotlin.random.Random
 
-data class Gamer(var nome:String, var email:String) {
+class Gamer(var nome:String, var email:String) {
     var dataNascimento: String? = null
     var usuario: String? = null
         set(value){
@@ -32,14 +32,14 @@ data class Gamer(var nome:String, var email:String) {
         email = validaEmail()
     }
 
-    fun criaIdInterno(){
+    private fun criaIdInterno(){
         val numero = Random.nextInt(1000)
         val tag = String.format("%04d", numero)
 
         idInterno = "$usuario#$tag"
     }
 
-    fun validaEmail():String{
+    private fun validaEmail():String{
         val regex = Regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")
 
         if(regex.matches(email)){
