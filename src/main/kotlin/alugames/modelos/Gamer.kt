@@ -1,5 +1,6 @@
 package alugames.modelos
 
+import java.util.*
 import kotlin.random.Random
 
 class Gamer(var nome:String, var email:String) {
@@ -13,6 +14,7 @@ class Gamer(var nome:String, var email:String) {
         }
     var idInterno: String? = null
         private set
+    var listaJogos = mutableListOf<Jogo?>()
 
     constructor(
         nome: String,
@@ -36,7 +38,7 @@ class Gamer(var nome:String, var email:String) {
         val numero = Random.nextInt(1000)
         val tag = String.format("%04d", numero)
 
-        idInterno = "$usuario#$tag"
+        idInterno = "$nome#$tag"
     }
 
     private fun validaEmail():String{
@@ -56,5 +58,28 @@ class Gamer(var nome:String, var email:String) {
             email: $email
             idInterno: $idInterno
         """.trimIndent()
+    }
+
+    companion object{
+        fun criarGamer(leitura: Scanner):Gamer{
+            println("Bora fazer o seu cadastro!")
+            print("Digite o seu nome: ")
+            val nome = leitura.nextLine()
+            print("Digite um email válido: ")
+            val email = leitura.nextLine()
+            print("Deseja fazer o cadastro completo? (S/N) ")
+            val opcaoCadastroCompleto = leitura.nextLine()
+
+            if (opcaoCadastroCompleto.equals("s", true)){
+                print("Digite a sua data de nascimento (DD/MM/AAAA: ")
+                val nascimento = leitura.nextLine()
+                print("Digite seu nome de usuario: ")
+                val usuario = leitura.nextLine()
+
+                return Gamer(nome, email, nascimento, usuario)
+            } else {
+                return Gamer(nome, email)
+            }
+        }
     }
 }

@@ -1,11 +1,15 @@
 package alugames.principal
 
+import alugames.modelos.Gamer
 import alugames.modelos.Jogo
 import alugames.servicos.ConsumoApi
 import java.util.*
 
 fun main() {
     val leitura = Scanner(System.`in`)
+
+    val gamer = Gamer.criarGamer(leitura)
+    println(gamer)
 
     do {
 
@@ -39,12 +43,13 @@ fun main() {
                 meuJogo?.descricao = meuJogo?.titulo
             }
 
-            println(meuJogo)
+            gamer.listaJogos.add(meuJogo)
         }
 
-        print("Deseja buscar um novo jogo? S/N ")
+        print("Deseja buscar um novo jogo? (S/N) ")
         val opcaoBusca = leitura.nextLine()
     } while(opcaoBusca.equals("s", true))
+    println(gamer.listaJogos)
 
     println("Finalizando o programa!")
 }
