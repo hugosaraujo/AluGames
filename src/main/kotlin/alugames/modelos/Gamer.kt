@@ -27,12 +27,12 @@ class Gamer(var nome:String, var email:String) {
         criaIdInterno()
     }
 
-    init {
-        if(nome.isBlank()){
-            throw IllegalArgumentException("Nome é nulo ou está em branco")
-        }
-        email = validaEmail()
-    }
+//    init {
+//        if(nome.isBlank()){
+//            throw IllegalArgumentException("Nome é nulo ou está em branco")
+//        }
+//        email = validaEmail()
+//    }
 
     private fun criaIdInterno(){
         val numero = Random.nextInt(1000)

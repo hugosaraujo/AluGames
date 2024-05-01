@@ -49,7 +49,15 @@ fun main() {
         print("Deseja buscar um novo jogo? (S/N) ")
         val opcaoBusca = leitura.nextLine()
     } while(opcaoBusca.equals("s", true))
-    println(gamer.listaJogos)
+//    println(gamer.listaJogos)
+
+    gamer.listaJogos.sortBy {
+        it?.titulo
+    }
+
+    gamer.listaJogos.forEach{
+        println("Titulo: ${it?.titulo}")
+    }
 
     println("Finalizando o programa!")
 }
