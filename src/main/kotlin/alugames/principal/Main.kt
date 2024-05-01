@@ -59,5 +59,23 @@ fun main() {
         println("Titulo: ${it?.titulo}")
     }
 
+//    val jogosFiltrados = gamer.listaJogos.filter {
+//        it?.titulo?.contains("batman", true) ?: false
+//    }
+//    println("Jogos filtrados")
+//    println(jogosFiltrados)
+
+
+    print("Deseja excluir itens da lista? (S/N)")
+    val opcao = leitura.nextLine()
+    if(opcao.equals("s",true)){
+        println(gamer.listaJogos)
+        print("Informe a posicação do jogo a ser excluido: ")
+        val posicao = leitura.nextInt()
+        gamer.listaJogos.removeAt(posicao)
+    }
+
+    println(gamer.listaJogos)
+
     println("Finalizando o programa!")
 }
