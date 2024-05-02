@@ -71,7 +71,7 @@ class Gamer(var nome:String, var email:String) {
             val opcaoCadastroCompleto = leitura.nextLine()
 
             if (opcaoCadastroCompleto.equals("s", true)){
-                print("Digite a sua data de nascimento (DD/MM/AAAA: ")
+                print("Digite a sua data de nascimento (DD/MM/AAAA): ")
                 val nascimento = leitura.nextLine()
                 print("Digite seu nome de usuario: ")
                 val usuario = leitura.nextLine()
