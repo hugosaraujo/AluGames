@@ -41,7 +41,7 @@ class ConsumoApi {
         val gson = Gson()
         val tipoGamer = object: TypeToken<List<InfoGamerJson>>() {}.type
         val listaGamer:List<InfoGamerJson> = gson.fromJson(json, tipoGamer)
-        val listaGamerConvertida = listaGamer.map{ InfoGamerJson -> InfoGamerJson.criaGamer() }
+        val listaGamerConvertida = listaGamer.map{ infoGamerJson -> infoGamerJson.criaGamer() }
         return listaGamerConvertida
     }
 
