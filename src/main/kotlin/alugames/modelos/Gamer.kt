@@ -56,8 +56,9 @@ class Gamer(var nome:String, var email:String) {
             Usuário: $usuario, 
             Nome: $nome
             email: $email
-            idInterno: $idInterno
+             
         """.trimIndent()
+
     }
 
     companion object{
