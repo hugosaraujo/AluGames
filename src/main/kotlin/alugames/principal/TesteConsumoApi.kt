@@ -3,8 +3,8 @@ import alugames.servicos.ConsumoApi
 fun main(){
     val consumo = ConsumoApi()
     //val listaGamers = consumo.buscaGamer()
-    val testaJogo = consumo.buscaJogo("151")
+    val listaJogosJson = consumo.buscaJogoJson()
 
     //println(listaGamers)
-    println(testaJogo)
+    println(listaJogosJson)
 }
