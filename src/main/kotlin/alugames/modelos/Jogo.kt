@@ -2,7 +2,7 @@ package alugames.modelos
 
 data class Jogo( val titulo:String, val capa:String ) {
 
-    var preco:Double? = 0.0
+    var preco:Double = 0.0
     var descricao:String? = null
 
     constructor(titulo:String, capa:String, preco: Double, descricao: String):
