@@ -1,6 +1,5 @@
 package alugames.modelos
 
-import java.time.LocalDate
 import java.util.*
 import kotlin.random.Random
 
