@@ -11,9 +11,12 @@ fun main(){
     //println(listaJogosJson)
 
     val gamerCaroline = listaGamers.get(3)
-    val jogo1 = listaJogosJson.get(7)
+    val godOfWar = listaJogosJson.get(7)
+    val spiderMan = listaJogosJson.get(13)
+    val codWarzone = listaJogosJson.get(8)
+
 
     val periodo = Periodo(LocalDate.now(), LocalDate.now().plusDays(3))
-    val aluguel = gamerCaroline.alugaJogo(jogo1, periodo)
+    val aluguel = gamerCaroline.alugaJogo(godOfWar, periodo)
     println(aluguel)
 }
