@@ -14,7 +14,7 @@ class Gamer(var nome:String, var email:String) {
         }
     var idInterno: String? = null
         private set
-    var plano: PlanoAvulso = PlanoAvulso("BRONZE")
+    var plano: Plano = PlanoAvulso("BRONZE")
     val listaJogos = mutableListOf<Jogo?>()
     val jogosAlugados = mutableListOf<Aluguel>()
 
@@ -68,6 +68,11 @@ class Gamer(var nome:String, var email:String) {
         jogosAlugados.add(aluguel)
 
         return aluguel
+    }
+    fun jogosDoMes(mes: Int): List<Jogo>{
+        return jogosAlugados
+            .filter { aluguel ->  aluguel.periodo.dataInicial.monthValue == mes}
+            .map { aluguel ->  aluguel.jogo}
     }
 
     companion object{
