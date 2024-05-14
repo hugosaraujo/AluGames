@@ -28,14 +28,14 @@ fun main(){
     gamerCaroline.alugaJogo(codWarzone, periodoJogo3)
 
     val gamerCamila = listaGamers[5]
-    //gamerCamila.plano = PlanoAssinatura("PRATA", 9.90)
+    gamerCamila.plano = PlanoAssinatura("PRATA", 9.90)
     gamerCamila.alugaJogo(godOfWar, periodoJogo1)
     gamerCamila.alugaJogo(spiderMan, periodoJogo2)
     gamerCamila.alugaJogo(codWarzone, periodoJogo3)
     gamerCamila.alugaJogo(codWarzone, periodoJogo3)
 
+    gamerCamila.recomendar(6)
     gamerCamila.recomendar(10)
-    gamerCamila.recomendar(8)
     gamerCamila.recomendar(8)
 
     println(gamerCamila)

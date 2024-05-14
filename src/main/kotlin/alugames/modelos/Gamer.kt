@@ -22,7 +22,14 @@ class Gamer(var nome:String, var email:String):Recomendavel {
         get() = listaNotas.average()
 
     override fun recomendar(nota: Int) {
-        listaNotas.add(nota)
+        if(nota < 1 || nota > 10) {
+            println("Não é possível atribuir essa nota ao usuário!!!")
+            println("Tente uma nota entre 1 e 10.")
+        } else {
+            println("Nota registrada com sucesso")
+            listaNotas.add(nota)
+        }
+
     }
 
     constructor(
