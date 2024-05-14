@@ -3,7 +3,7 @@ package alugames.modelos
 import java.util.*
 import kotlin.random.Random
 
-class Gamer(var nome:String, var email:String) {
+class Gamer(var nome:String, var email:String):Recomendavel {
     var dataNascimento: String? = null
     var usuario: String? = null
         set(value){
@@ -17,6 +17,13 @@ class Gamer(var nome:String, var email:String) {
     var plano: Plano = PlanoAvulso("BRONZE")
     val listaJogos = mutableListOf<Jogo?>()
     val jogosAlugados = mutableListOf<Aluguel>()
+    private val listaNotas = mutableListOf<Int>()
+    override val media: Double
+        get() = listaNotas.average()
+
+    override fun recomendar(nota: Int) {
+        listaNotas.add(nota)
+    }
 
     constructor(
         nome: String,
@@ -58,6 +65,7 @@ class Gamer(var nome:String, var email:String) {
             Usuário: $usuario, 
             Nome: $nome
             email: $email
+            reputação: $media
              
         """.trimIndent()
 
