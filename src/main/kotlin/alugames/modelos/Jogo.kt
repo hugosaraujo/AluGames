@@ -1,5 +1,6 @@
 package alugames.modelos
 
+import alugames.utilitario.formatoDecimalComDoisNumeros
 import com.google.gson.annotations.Expose
 
 data class Jogo(
@@ -10,7 +11,7 @@ data class Jogo(
     var descricao:String? = null
     val listaDeNotas = mutableListOf<Int>()
     override val media: Double
-        get() = listaDeNotas.average()
+        get() = listaDeNotas.average().formatoDecimalComDoisNumeros()
 
     override fun recomendar(nota: Int) {
         if(nota < 1 || nota > 10) {

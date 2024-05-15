@@ -1,5 +1,6 @@
 package alugames.modelos
 
+import alugames.utilitario.formatoDecimalComDoisNumeros
 import java.util.*
 import kotlin.random.Random
 
@@ -20,7 +21,7 @@ class Gamer(var nome:String, var email:String):Recomendavel {
     private val listaNotas = mutableListOf<Int>()
     val jogosRecomendados = mutableListOf<Jogo>()
     override val media: Double
-        get() = listaNotas.average()
+        get() = listaNotas.average().formatoDecimalComDoisNumeros()
 
     override fun recomendar(nota: Int) {
         if(nota < 1 || nota > 10) {
@@ -32,7 +33,7 @@ class Gamer(var nome:String, var email:String):Recomendavel {
         }
     }
 
-    fun recomendarJogos(jogo: Jogo, nota: Int){
+    fun recomendarJogo(jogo: Jogo, nota: Int){
         jogo.recomendar(nota)
         jogosRecomendados.add(jogo)
     }
@@ -77,7 +78,7 @@ class Gamer(var nome:String, var email:String):Recomendavel {
             Usuário: $usuario, 
             Nome: $nome
             email: $email
-            reputação: $media
+            reputação: ${media.formatoDecimalComDoisNumeros()}
              
         """.trimIndent()
 

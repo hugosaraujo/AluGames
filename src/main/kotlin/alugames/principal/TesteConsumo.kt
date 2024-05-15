@@ -3,8 +3,6 @@ package alugames.principal
 import alugames.modelos.Periodo
 import alugames.modelos.PlanoAssinatura
 import alugames.servicos.ConsumoApi
-import com.google.gson.GsonBuilder
-import java.io.File
 import java.time.LocalDate
 
 fun main(){
@@ -40,25 +38,25 @@ fun main(){
     gamerCamila.recomendar(10)
     gamerCamila.recomendar(8)
 
-    //println(gamerCamila)
+    println(gamerCamila)
     gamerCamila.alugaJogo(spiderMan, periodoJogo2)
 
     //println(gamerCamila.jogosAlugados)
 
-    gamerCamila.recomendarJogos(spiderMan, 10)
-    gamerCamila.recomendarJogos(codWarzone, 6)
+    gamerCamila.recomendarJogo(spiderMan, 8)
+    gamerCamila.recomendarJogo(codWarzone, 6)
 
-    println(gamerCamila.jogosRecomendados)
-    gamerCaroline.recomendarJogos(spiderMan, 7)
+    //println(gamerCamila.jogosRecomendados)
+    gamerCaroline.recomendarJogo(spiderMan, 3)
 
     println(gamerCaroline.jogosRecomendados)
 
-    val gson = GsonBuilder().excludeFieldsWithoutExposeAnnotation().create()
-    val serializacao = gson.toJson(gamerCamila.jogosRecomendados)
-    println(serializacao)
-
-    val arquivo = File("jogosRecomendados_${gamerCamila.nome}.json")
-    arquivo.writeText(serializacao)
-    println(arquivo.absolutePath)
+//    val gson = GsonBuilder().excludeFieldsWithoutExposeAnnotation().create()
+//    val serializacao = gson.toJson(gamerCamila.jogosRecomendados)
+//    println(serializacao)
+//
+//    val arquivo = File("jogosRecomendados_${gamerCamila.nome}.json")
+//    arquivo.writeText(serializacao)
+//    println(arquivo.absolutePath)
 
 }
