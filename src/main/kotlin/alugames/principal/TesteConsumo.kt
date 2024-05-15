@@ -38,10 +38,17 @@ fun main(){
     gamerCamila.recomendar(10)
     gamerCamila.recomendar(8)
 
-    println(gamerCamila)
+    //println(gamerCamila)
     gamerCamila.alugaJogo(spiderMan, periodoJogo2)
 
-    println(gamerCamila.jogosAlugados)
+    //println(gamerCamila.jogosAlugados)
 
+    gamerCamila.recomendarJogos(spiderMan, 10)
+    gamerCamila.recomendarJogos(codWarzone, 6)
+
+    println(gamerCamila.jogosRecomendados)
+    gamerCaroline.recomendarJogos(spiderMan, 7)
+
+    println(gamerCaroline.jogosRecomendados)
 
 }
