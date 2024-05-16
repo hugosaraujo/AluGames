@@ -2,12 +2,13 @@ package alugames.modelos
 
 import alugames.utilitario.formatoDecimalComDoisNumeros
 import com.google.gson.annotations.Expose
+import java.math.BigDecimal
 
 data class Jogo(
     @Expose val titulo:String,
     @Expose val capa:String ):Recomendavel {
 
-    var preco:Double = 0.0
+    var preco = 0.0
     var descricao:String? = null
     val listaDeNotas = mutableListOf<Int>()
     override val media: Double

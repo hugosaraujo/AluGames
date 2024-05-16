@@ -1,6 +1,7 @@
 package alugames.modelos
 
 import alugames.utilitario.formatoDecimalComDoisNumeros
+import java.math.BigDecimal
 import java.util.*
 import kotlin.random.Random
 
@@ -78,7 +79,7 @@ class Gamer(var nome:String, var email:String):Recomendavel {
             Usuário: $usuario, 
             Nome: $nome
             email: $email
-            reputação: ${media.formatoDecimalComDoisNumeros()}
+            reputação: ${media}
              
         """.trimIndent()
 
